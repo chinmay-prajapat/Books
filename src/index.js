@@ -1,39 +1,38 @@
 import ReactDOM from "react-dom";
 import React from "react";
+import "./style.css";
 
+const books = [
+  {
+    img: "https://m.media-amazon.com/images/I/81jv44QdNwL._AC_SY200_.jpg",
+    title: "Grandma's Bag of Stories",
+    author: "Sudha Murty",
+  },
+  {
+    img: "https://m.media-amazon.com/images/I/81jv44QdNwL._AC_SY200_.jpg",
+    title: "Grandma's Bag of Stories",
+    author: "Sudha Murty",
+  },
+];
 function BookList() {
   return (
-    <section>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+    <section className="booklist">
+      {books.map((item) => {
+        return <Book book={item} />;
+      })}
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
   return (
-    <article>
-      <Image> </Image> <Title />
-      <Author />
+    <article className="book">
+      <img src={props.book.img} alt="" />
+      <h1>{props.book.title}</h1>
+      <br />
+      <h4>{props.book.author}</h4>
     </article>
   );
 };
 
-function Image() {
-  return (
-    <img
-      src="https://images-na.ssl-images-amazon.com/images/I/51wcMnPFh9L._SX323_BO1,204,203,200_.jpg"
-      alt=""
-    />
-  );
-}
-
-const Title = () => <h1> I Love You to the Moon and Back </h1>;
-const Author = () => <h4> Amelia Hepworth </h4>;
 ReactDOM.render(<BookList />, document.querySelector("#root"));
