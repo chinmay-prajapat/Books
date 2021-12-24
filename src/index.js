@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import React from "react";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function BookList() {
+  return (
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Book = () => {
+  return (
+    <article>
+      <Image> </Image> <Title />
+      <Author />
+    </article>
+  );
+};
+
+function Image() {
+  return (
+    <img
+      src="https://images-na.ssl-images-amazon.com/images/I/51wcMnPFh9L._SX323_BO1,204,203,200_.jpg"
+      alt=""
+    />
+  );
+}
+
+const Title = () => <h1> I Love You to the Moon and Back </h1>;
+const Author = () => <h4> Amelia Hepworth </h4>;
+ReactDOM.render(<BookList />, document.querySelector("#root"));
